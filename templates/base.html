@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../static/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <script src="{{ url_for('static', filename='materialize/js/jquery.js', _external=True )}}"></script>
+    <script type="text/javascript" src="../static/materialize/js/materialize.min.js"></script>
+    <title>常见多肉种类识别系统</title>
+    <meta http-equiv="Content-Type"  content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/materialize/css/default.css">
+    <style type="text/css">
+        body {
+            margin: 0;
+            background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1546343971&di=e82c3b0df1737a24e14a143c5fde6536&imgtype=jpg&er=1&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2018-09-29%2F5baedda4a2024.jpg');
+            background-repeat:no-repeat;
+            background-position:0% 0%;
+            background-size:cover;
+            background-color: #22C3AA;
+        }
+    </style>
+
+    {#    <link rel="Shortcut Icon" href="/favicon.ico">#}
+</head>
+{#<body background="http://pic35.photophoto.cn/20150624/0035035740956323_b.jpg" style="background-repeat:no-repeat">#}
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo" style="padding-left:150px">多&nbsp;肉&nbsp;识&nbsp;别&nbsp;&nbsp;&nbsp;&nbsp;“鉴”&nbsp;你&nbsp;所&nbsp;见</a>
+    </div>
+  </nav>
+{#  <nav>#}
+{#      <div class="nav-wrapper">#}
+{#          <a href="/" class="brand-logo" style="padding-left:15px">“鉴”你所见</a>#}
+{#      </div>#}
+{#  </nav>#}
+
+ <div class="container">
+     <div style="min-height: 350px;">
+        {% block content %}
+        {% endblock %}
+     </div>
+    <div>
+
+
+      <!--  <a href="/camera" class="waves-effect waves-light btn">上传图片</a>
+        <form action="/camera" method="post" style="display: inline;">
+            <label class="waves-effect waves-light btn" for="xFile">上传图片</label>
+            &lt;!&ndash;<form><input type="file" id="xFile" style="position:absolute;clip:rect(0 0 0 0);"></form>&ndash;&gt;
+          <button class="waves-effect waves-light btn" type="submit" style="margin-left:30px">点击预测</button>
+
+        </form>-->
+
+ <div>
+            <form action="upload" enctype='multipart/form-data' method='POST'>
+        <input type="file" name="file" style="margin-top:20px;"/>
+        <br>
+        <i>请输入：</i>
+        <input type="text" class="txt_input" name="name"  value="test" style="margin-top:10px;"/>
+        <input type="submit" value="上传" class="waves-effect waves-light btn" style="margin-top:15px;"/>
+<p>&nbsp;</p>
+    </form>
+        </div>
+        <div>
+            <form action="picture" method="post">
+                 <button class="waves-effect waves-light btn" type="submit" style="margin-left:30px">点击预测</button>
+            </form>
+        </div>
+
+{#        <p>#}
+{#          <button class="waves-effect waves-light btn" type="submit">这是一个测试按钮</button>#}
+{#        </p>#}
+
+    </div>
+{#     <div>#}
+{#         <a href="/picture" class="waves-effect waves-light btn">上传图片</a>#}
+{#         <form action="/picture" method="post" style="display: inline;">#}
+{##}
+{#             <button class="waves-effect waves-light btn" type="submit" style="margin-left:30px">点击预测</button>#}
+         <p>&nbsp;</p>
+         <SCRIPT LANGUAGE="JavaScript">
+             function reP(){
+                 document.getElementById('oImg').style.display = "block";
+             }
+         </SCRIPT>
+         <img src='../static/materialize/images/2.jpg' id="oImg" style='display:none' width="450px" hight="400px">
+         <INPUT TYPE="button" value='多肉信息' onclick="reP()" class="waves-effect waves-light btn">
+         {##}
+{#         </form>#}
+{##}
+         {#        <p>#}
+         {#          <button class="waves-effect waves-light btn" type="submit">这是一个测试按钮</button>#}
+         {#        </p>#}
+{##}
+{#     </div>#}
+
+
+
+
+ </div> <!-- /container -->
+  <p style='font-size:30px;color:red;padding-left: 25px'>友情链接：</p>
+  <a href="http://www.plantphoto.cn/" style="font-size:25px;padding-left: 120px" target="_blank">中国植物图像库官方网站</a><br>
+  <a href="http://www.lovedr.cn/" style="font-size:25px;padding-left: 120px" target="_blank">多肉植物论坛</a><br>
+  <a href="http://www.rou01.com/" style="font-size:25px;padding-left: 120px" target="_blank">多肉大本营</a><br>
+  <a href="https://www.zw3e.com/" style="font-size:25px;padding-left: 120px" target="_blank">植物之家</a>
+</body>
+</html>

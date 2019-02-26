@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+     <div class="col s12 m7">
+        <h2 class="header" style="font-size: 2.5rem"  id="h2">请等待片刻</h2>
+         <br><br><br>
+         <article class="htmleaf-container">
+             <div class="htmleaf-content">
+                 <svg id="container"></svg>
+{#                 <svg id="container1"></svg>#}
+{#                 <svg id="container2"></svg>#}
+             </div>
+         </article>
+         <script src="../static/materialize/js/jquery-2.1.1.min.js"></script>
+         <script src="../static/materialize/js/jquery.progress.js"></script>
+
+             <div class="card horizontal">
+          <div class="card-image" style="min-height: 200px">
+{#            {% if pic %}#}
+{#                <img id="img" src="{{url_for('static', filename=pic) }}" />#}
+{#            {% else %}#}
+{#                <img id="img" src="{{url_for('static', filename='test.jpg') }}" />#}
+{#            {% endif %}#}
+              <img id="img" src="" alt="">
+          </div>
+          <div class="card-stacked" >
+            <div class="card-content" style="text-align: center">
+                {% if result %}
+                    <script>
+                        var h2 = document.getElementById('h2');
+                        h2.innerHTML = "识别结果";
+                    </script>
+                    <p style='font-size:30px;color:white;background:dodgerblue'>
+                    <p1>根据预测可知最有可能的多肉为:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第&nbsp;{{ result[1] }}&nbsp;种</p1><br>
+                    <p2>可知此多肉为:&nbsp;&nbsp;&nbsp;&nbsp;{{ result[0] }}</p2><br>
+                    <p3>并输出各种多肉的预测值:&nbsp;&nbsp;&nbsp;&nbsp;{{ result[2] }}</p3>
+                {% else %}
+                    <script>
+                        var progress = $("#container").Progress({
+                            percent: 100,
+                            width: 200,
+                            height: 40,
+                            fontSize: 16
+                        });
+                    </script>
+                    <h3 id="h1"></h3>
+                {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    <script>
+        setTimeout(function(){
+            var h1 = document.getElementById('h1');
+            h1.innerHTML = "恭喜!&nbsp;&nbsp;图片上传完成，请点击预测按钮...";
+        },3400)
+    </script>
+
+
+{% endblock %}
